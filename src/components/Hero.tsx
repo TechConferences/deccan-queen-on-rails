@@ -5,8 +5,8 @@ import { RubyGem } from "./RubyGem";
 import { MapPin, Calendar, Sparkles } from "lucide-react";
 
 export const Hero = () => {
-  // Set conference date to March 2025
-  const conferenceDate = new Date("2025-03-15T09:00:00");
+  // Set conference date to March 2026
+  const conferenceDate = new Date("2026-03-15T09:00:00");
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 overflow-hidden bg-gradient-hero">
@@ -59,7 +59,7 @@ export const Hero = () => {
         >
           <div className="flex items-center gap-2 text-muted-foreground">
             <Calendar className="h-5 w-5 text-primary" />
-            <span className="font-medium">March 15-16, 2025</span>
+            <span className="font-medium">March 15-16, 2026</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="h-5 w-5 text-primary" />
