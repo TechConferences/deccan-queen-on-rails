@@ -2,7 +2,7 @@ import { WaitlistForm } from "./WaitlistForm";
 import { SocialProof } from "./SocialProof";
 import { CountdownTimer } from "./CountdownTimer";
 import { RubyGem } from "./RubyGem";
-import { MapPin, Calendar, Sparkles } from "lucide-react";
+import { MapPin, Calendar, Sparkles, Twitter, Linkedin, Instagram } from "lucide-react";
 
 export const Hero = () => {
   // Set conference date to March 2026
@@ -86,11 +86,45 @@ export const Hero = () => {
         </div>
 
         {/* Social proof */}
-        <div 
+        <div
           className="flex justify-center opacity-0 animate-fade-in"
           style={{ animationDelay: "0.9s" }}
         >
           <SocialProof />
+        </div>
+
+        {/* Social links */}
+        <div
+          className="flex justify-center gap-6 mt-8 opacity-0 animate-fade-in"
+          style={{ animationDelay: "1s" }}
+        >
+          <a
+            href="https://x.com/decaborails"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Twitter/X"
+          >
+            <Twitter className="h-6 w-6" />
+          </a>
+          <a
+            href="https://linkedin.com/company/deccan-queen-on-rails"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a
+            href="https://instagram.com/decaborails"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram className="h-6 w-6" />
+          </a>
         </div>
       </div>
 
