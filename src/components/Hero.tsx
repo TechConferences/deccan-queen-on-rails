@@ -68,13 +68,14 @@ export const Hero = () => {
         </div>
 */}
 
-        {/* Countdown */}
-        <div 
+{/* Countdown hidden for now
+        <div
           className="mb-12 opacity-0 animate-scale-in"
           style={{ animationDelay: "0.6s" }}
         >
           <CountdownTimer targetDate={conferenceDate} />
         </div>
+*/}
 
         {/* Waitlist form */}
         <div 
