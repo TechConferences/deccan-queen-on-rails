@@ -99,7 +99,7 @@ export const Hero = () => {
           style={{ animationDelay: "1s" }}
         >
           <a
-            href="https://x.com/decaborails"
+            href="https://x.com/deccanqueen2026"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -108,7 +108,7 @@ export const Hero = () => {
             <Twitter className="h-6 w-6" />
           </a>
           <a
-            href="https://linkedin.com/company/deccan-queen-on-rails"
+            href="https://www.linkedin.com/company/deccan-queen-on-rails"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -117,7 +117,7 @@ export const Hero = () => {
             <Linkedin className="h-6 w-6" />
           </a>
           <a
-            href="https://instagram.com/decaborails"
+            href="https://www.instagram.com/deccanqueenonrails/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
