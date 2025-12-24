@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Loader2 } from "lucide-react";
 
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDb6kDl_WcuEFGWf1S3Wlv0Jsq_xkkYwrDu1Bg5VkZLvpw07TEIPEeFRqNihpaVfUM/exec";
+
 export const WaitlistForm = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -11,21 +13,39 @@ export const WaitlistForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email) return;
-    
+
     setIsLoading(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "You're on the list! 🎉",
-      description: "We'll notify you when tickets are available.",
-    });
-    
-    setEmail("");
-    setIsLoading(false);
+
+    try {
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      toast({
+        title: "You're on the list!",
+        description: "We'll notify you when tickets are available.",
+      });
+      setEmail("");
+
+      // Trigger refetch of waitlist count
+      window.dispatchEvent(new CustomEvent("waitlist-updated"));
+    } catch (error) {
+      console.error("Error submitting to waitlist:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

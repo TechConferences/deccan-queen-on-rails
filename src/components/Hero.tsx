@@ -52,7 +52,8 @@ export const Hero = () => {
         </p>
 
         {/* Event details */}
-        <div 
+{/* Date and location hidden for now
+        <div
           className="flex flex-wrap items-center justify-center gap-6 mb-10 opacity-0 animate-fade-in-up"
           style={{ animationDelay: "0.5s" }}
         >
@@ -65,6 +66,7 @@ export const Hero = () => {
             <span className="font-medium">Pune, Maharashtra</span>
           </div>
         </div>
+*/}
 
         {/* Countdown */}
         <div 
@@ -87,7 +89,7 @@ export const Hero = () => {
           className="flex justify-center opacity-0 animate-fade-in"
           style={{ animationDelay: "0.9s" }}
         >
-          <SocialProof count={134} />
+          <SocialProof />
         </div>
       </div>
 

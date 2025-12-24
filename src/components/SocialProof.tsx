@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDb6kDl_WcuEFGWf1S3Wlv0Jsq_xkkYwrDu1Bg5VkZLvpw07TEIPEeFRqNihpaVfUM/exec";
 
 const avatars = [
   { id: 1, color: "bg-ruby" },
@@ -9,11 +12,36 @@ const avatars = [
 ];
 
 interface SocialProofProps {
-  count?: number;
   className?: string;
 }
 
-export const SocialProof = ({ count = 134, className }: SocialProofProps) => {
+export const SocialProof = ({ className }: SocialProofProps) => {
+  const [count, setCount] = useState<number>(0);
+
+  const fetchCount = async () => {
+    try {
+      const response = await fetch(`${GOOGLE_APPS_SCRIPT_URL}?action=count`);
+      const data = await response.json();
+      if (data.success) {
+        setCount(data.count);
+      }
+    } catch (error) {
+      console.error("Error fetching waitlist count:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCount();
+
+    // Listen for waitlist updates to refetch count
+    const handleUpdate = () => fetchCount();
+    window.addEventListener("waitlist-updated", handleUpdate);
+
+    return () => window.removeEventListener("waitlist-updated", handleUpdate);
+  }, []);
+
+  if (count === 0) return null;
+
   return (
     <div className={cn("flex items-center gap-3", className)}>
       <div className="flex -space-x-3">
